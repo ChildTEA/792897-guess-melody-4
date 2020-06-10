@@ -9,4 +9,6 @@ Thumbs.db
 
 # Вспомогательные файлы
 *.log*
+public/bundle.js
+public/bundle.js.map
 node_modules/
