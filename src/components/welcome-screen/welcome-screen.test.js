@@ -9,6 +9,7 @@ describe(`<App />`, () => {
     const tree = renderer
       .create(<WelcomeScreen
         errorsCount={ERRORS_COUNT}
+        onWelcomeButtonClick={() => {}}
       />)
       .toJSON();
 
