@@ -34,17 +34,15 @@ class GenreQuestionScreen extends PureComponent {
         >
           {answers.map((answer, i) => (
             <div key={`${i}-${answer.src}`} className="track">
-              <div className="track__status">
-                <AudioPlayer
-                  isPlaying={i === activePlayer}
-                  src={answer.src}
-                  onPlayButtonClick={() => {
-                    this.setState({
-                      activePlayer: activePlayer === i ? -1 : i,
-                    });
-                  }}
-                />
-              </div>
+              <AudioPlayer
+                isPlaying={i === activePlayer}
+                src={answer.src}
+                onPlayButtonClick={() => {
+                  this.setState({
+                    activePlayer: activePlayer === i ? -1 : i,
+                  });
+                }}
+              />
               <div className="game__answer">
                 <input className="game__input visually-hidden" type="checkbox" name="answer" value={`answer-${i}`}
                   id={`answer-${i}`}
