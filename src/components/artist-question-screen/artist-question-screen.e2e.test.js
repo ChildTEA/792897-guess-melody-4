@@ -49,8 +49,9 @@ describe(`ArtistQuqestionScreen e2e`, () => {
 
     const screen = shallow(
         <ArtistQuestionScreen
-          onAnswer={onAnswer}
           question={question}
+          renderPlayer={() => {}}
+          onAnswer={onAnswer}
         />
     );
 
