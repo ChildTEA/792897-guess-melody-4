@@ -12,6 +12,7 @@ import {Switch, Route, BrowserRouter} from "react-router-dom";
 const GenreQuestionScreenWrapped = withAudioPlayer(GenreQuestionScreen);
 const ArtistQuestionScreenWrapped = withAudioPlayer(ArtistQuestionScreen);
 
+
 class App extends PureComponent {
   constructor(props) {
     super(props);
