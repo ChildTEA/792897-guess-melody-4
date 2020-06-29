@@ -111,8 +111,9 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(ActionCreator.incrementStep());
   },
 
-  onUserAnswer() {
+  onUserAnswer(question, answer) {
     dispatch(ActionCreator.incrementStep());
+    dispatch(ActionCreator.incrementMistake(question, answer));
   },
 });
 
