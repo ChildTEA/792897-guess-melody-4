@@ -54,7 +54,7 @@ describe(`<App />`, () => {
       .create(
           <Provider store={store}>
             <App
-              errorsCount={3}
+              maxMistakes={3}
               questions={questions}
               onUserAnswer={() => {}}
               onWelcomeButtonClick={() => {}}
@@ -76,7 +76,7 @@ describe(`<App />`, () => {
       .create(
           <Provider store={store}>
             <App
-              errorsCount={3}
+              maxMistakes={3}
               questions={questions}
               onUserAnswer={() => {}}
               onWelcomeButtonClick={() => {}}
@@ -101,7 +101,7 @@ describe(`<App />`, () => {
       .create(
           <Provider store={store}>
             <App
-              errorsCount={3}
+              maxMistakes={3}
               questions={questions}
               onUserAnswer={() => {}}
               onWelcomeButtonClick={() => {}}
