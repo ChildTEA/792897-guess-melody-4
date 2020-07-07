@@ -1,15 +1,22 @@
+// Libraries
+import PropTypes from "prop-types";
+import React, {PureComponent} from "react";
+import {ActionCreator} from "../../reducer.js";
+import {connect} from "react-redux";
+import {Switch, Route, BrowserRouter} from "react-router-dom";
+
+// Components
 import ArtistQuestionScreen from "../artist-question-screen/artist-question-screen.jsx";
 import GameScreen from "../game-screen/game-screen.jsx";
 import GenreQuestionScreen from "../genre-question-screen/genre-question-screen.jsx";
-import PropTypes from "prop-types";
-import React, {PureComponent} from "react";
 import WelcomeScreen from "../welcome-screen/welcome-screen.jsx";
+
+// HOCs
 import withActivePlayer from "../../hocs/with-active-player/with-active-player.js";
 import withUserAnswer from "../../hocs/with-user-answer/with-user-answer.js";
-import {ActionCreator} from "../../reducer.js";
-import {connect} from "react-redux";
+
+// consts & utils
 import {GameType} from "../../const.js";
-import {Switch, Route, BrowserRouter} from "react-router-dom";
 
 
 const GenreQuestionScreenWrapped = withActivePlayer(withUserAnswer(GenreQuestionScreen));
