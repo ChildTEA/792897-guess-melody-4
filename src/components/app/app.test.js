@@ -59,6 +59,7 @@ describe(`<App />`, () => {
               questions={questions}
               onUserAnswer={() => {}}
               onWelcomeButtonClick={() => {}}
+              resetGame={() => {}}
               step={-1}
             />
           </Provider>
@@ -82,6 +83,7 @@ describe(`<App />`, () => {
               questions={questions}
               onUserAnswer={() => {}}
               onWelcomeButtonClick={() => {}}
+              resetGame={() => {}}
               step={0}
             />
           </Provider>, {
@@ -108,6 +110,7 @@ describe(`<App />`, () => {
               questions={questions}
               onUserAnswer={() => {}}
               onWelcomeButtonClick={() => {}}
+              resetGame={() => {}}
               step={1}
             />
           </Provider>, {
@@ -130,11 +133,12 @@ describe(`<App />`, () => {
           <Provider store={store}>
             <App
               maxMistakes={3}
-              mistakes={3}
+              mistakes={0}
               questions={questions}
               onUserAnswer={() => {}}
               onWelcomeButtonClick={() => {}}
-              step={1}
+              resetGame={() => {}}
+              step={0}
             />
           </Provider>, {
             createNodeMock: () => {
@@ -160,6 +164,7 @@ describe(`<App />`, () => {
               questions={questions}
               onUserAnswer={() => {}}
               onWelcomeButtonClick={() => {}}
+              resetGame={() => {}}
               step={3}
             />
           </Provider>, {
