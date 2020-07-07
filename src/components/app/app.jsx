@@ -7,9 +7,11 @@ import {Switch, Route, BrowserRouter} from "react-router-dom";
 
 // Components
 import ArtistQuestionScreen from "../artist-question-screen/artist-question-screen.jsx";
+import GameOverScreen from "../game-over-screen/game-over-screen.jsx";
 import GameScreen from "../game-screen/game-screen.jsx";
 import GenreQuestionScreen from "../genre-question-screen/genre-question-screen.jsx";
 import WelcomeScreen from "../welcome-screen/welcome-screen.jsx";
+import WinScreen from "../win-screen/win-screen.jsx";
 
 // HOCs
 import withActivePlayer from "../../hocs/with-active-player/with-active-player.js";
@@ -27,6 +29,7 @@ class App extends PureComponent {
   _renderGameScreen() {
     const {
       maxMistakes,
+      mistakes,
       questions,
       onUserAnswer,
       onWelcomeButtonClick,
@@ -34,11 +37,29 @@ class App extends PureComponent {
     } = this.props;
     const question = questions[step];
 
-    if (step === -1 || step >= questions.length) {
+    if (step === -1) {
       return (
         <WelcomeScreen
           errorsCount={maxMistakes}
           onWelcomeButtonClick={onWelcomeButtonClick}
+        />
+      );
+    }
+
+    if (mistakes >= maxMistakes) {
+      return (
+        <GameOverScreen
+          onReplayButtonClick={() => {}}
+        />
+      );
+    }
+
+    if (step >= questions.length) {
+      return (
+        <WinScreen
+          questionsCount={questions.length}
+          mistakesCount={mistakes}
+          onReplayButtonClick={() => {}}
         />
       );
     }
@@ -94,6 +115,18 @@ class App extends PureComponent {
               onAnswer={() => {}}
             />
           </Route>
+          <Route exact path="/win">
+            <WinScreen
+              questionsCount={questions.length}
+              mistakesCount={0}
+              onReplayButtonClick={() => {}}
+            />
+          </Route>
+          <Route exact path="/lose">
+            <GameOverScreen
+              onReplayButtonClick={() => {}}
+            />
+          </Route>
         </Switch>
       </BrowserRouter>
     );
@@ -103,6 +136,7 @@ class App extends PureComponent {
 
 App.propTypes = {
   maxMistakes: PropTypes.number.isRequired,
+  mistakes: PropTypes.number.isRequired,
   step: PropTypes.number.isRequired,
   questions: PropTypes.arrayOf(PropTypes.object).isRequired,
   onUserAnswer: PropTypes.func.isRequired,
@@ -114,6 +148,7 @@ const mapStateToProps = (state) => ({
   step: state.step,
   maxMistakes: state.maxMistakes,
   questions: state.questions,
+  mistakes: state.mistakes,
 });
 
 const mapDispatchToProps = (dispatch) => ({
