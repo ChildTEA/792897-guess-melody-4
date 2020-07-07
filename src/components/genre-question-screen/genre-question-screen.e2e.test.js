@@ -1,5 +1,5 @@
 import React from "react";
-import Enzyme, {shallow} from "enzyme";
+import Enzyme, {shallow, mount} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import GenreQuestionScreen from "./genre-question-screen.jsx";
 
@@ -45,6 +45,7 @@ describe(`GenreQuestionScreen e2e`, () => {
           renderPlayer={() => {}}
           userAnswers={[false, false, false, false]}
           onAnswer={onAnswer}
+          onChange={() => {}}
         />);
 
     const form = genreQuestion.find(`form`);
@@ -62,7 +63,7 @@ describe(`GenreQuestionScreen e2e`, () => {
     const onAnswer = jest.fn((...args) => [...args]);
     const userAnswer = [false, true, false, false];
 
-    const genreQuestion = shallow(
+    const genreQuestion = mount(
         <GenreQuestionScreen
           question={question}
           renderPlayer={() => {}}
