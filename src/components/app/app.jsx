@@ -5,13 +5,14 @@ import PropTypes from "prop-types";
 import React, {PureComponent} from "react";
 import WelcomeScreen from "../welcome-screen/welcome-screen.jsx";
 import withActivePlayer from "../../hocs/with-active-player/with-active-player.js";
+import withUserAnswer from "../../hocs/with-user-answer/with-user-answer.js";
 import {ActionCreator} from "../../reducer.js";
 import {connect} from "react-redux";
 import {GameType} from "../../const.js";
 import {Switch, Route, BrowserRouter} from "react-router-dom";
 
 
-const GenreQuestionScreenWrapped = withActivePlayer(GenreQuestionScreen);
+const GenreQuestionScreenWrapped = withActivePlayer(withUserAnswer(GenreQuestionScreen));
 const ArtistQuestionScreenWrapped = withActivePlayer(ArtistQuestionScreen);
 
 
