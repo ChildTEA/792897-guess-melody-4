@@ -4,17 +4,14 @@ import {GameType} from "../../const.js";
 
 
 class GenreQuestionScreen extends PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      answers: [false, false, false, false],
-    };
-  }
-
   render() {
-    const {onAnswer, question, renderPlayer} = this.props;
-    const {answers: userAnswers} = this.state;
+    const {
+      renderPlayer,
+      question,
+      userAnswers,
+      onAnswer,
+      onChange,
+    } = this.props;
     const {answers, genre} = question;
 
     return (
@@ -24,7 +21,7 @@ class GenreQuestionScreen extends PureComponent {
           className="game__tracks"
           onSubmit={(evt) => {
             evt.preventDefault();
-            onAnswer(question, this.state.answers);
+            onAnswer();
           }}
         >
           {answers.map((answer, i) => (
@@ -65,7 +62,9 @@ GenreQuestionScreen.propTypes = {
     type: PropTypes.oneOf([GameType.ARTIST, GameType.GENRE]).isRequired,
   }).isRequired,
   renderPlayer: PropTypes.func.isRequired,
+  userAnswers: PropTypes.arrayOf(PropTypes.bool).isRequired,
   onAnswer: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 

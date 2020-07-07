@@ -41,9 +41,10 @@ describe(`GenreQuestionScreen e2e`, () => {
     const onAnswer = jest.fn();
     const genreQuestion = shallow(
         <GenreQuestionScreen
-          onAnswer={onAnswer}
           question={question}
           renderPlayer={() => {}}
+          userAnswers={[false, false, false, false]}
+          onAnswer={onAnswer}
         />);
 
     const form = genreQuestion.find(`form`);
@@ -63,11 +64,12 @@ describe(`GenreQuestionScreen e2e`, () => {
 
     const genreQuestion = shallow(
         <GenreQuestionScreen
-          onAnswer={onAnswer}
           question={question}
           renderPlayer={() => {}}
-        />
-    );
+          userAnswers={userAnswer}
+          onAnswer={onAnswer}
+          onChange={() => {}}
+        />);
 
     const form = genreQuestion.find(`form`);
     const inputTwo = genreQuestion.find(`input`).at(1);
@@ -77,8 +79,7 @@ describe(`GenreQuestionScreen e2e`, () => {
 
     expect(onAnswer).toHaveBeenCalledTimes(1);
 
-    expect(onAnswer.mock.calls[0][0]).toMatchObject(question);
-    expect(onAnswer.mock.calls[0][1]).toMatchObject(userAnswer);
+    expect(onAnswer.mock.calls[0][0]).toEqual(void 0);
 
     expect(
         genreQuestion.find(`input`).map((it) => it.prop(`checked`))
