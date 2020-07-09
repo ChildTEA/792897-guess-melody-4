@@ -28,8 +28,10 @@ describe(`<GenreQuestionScreen />`, () => {
     .create((
       <GenreQuestionScreen
         question={question}
-        onAnswer={() => {}}
         renderPlayer={() => {}}
+        userAnswers={[false, false, false, false]}
+        onAnswer={() => {}}
+        onChange={() => {}}
       />
     ), {
       createNodeMock: () => {
