@@ -1,10 +1,8 @@
 import axios from "axios";
 
-
 const Error = {
   UNAUTHORIZED: 401
 };
-
 
 const createAPI = (onUnauthorized) => {
   const api = axios.create({
@@ -30,6 +28,8 @@ const createAPI = (onUnauthorized) => {
   };
 
   api.interceptors.response.use(onSuccess, onFail);
+
+  return api;
 };
 
 export {createAPI};
