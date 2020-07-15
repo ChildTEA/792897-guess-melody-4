@@ -11,11 +11,11 @@ const randomFilter = () => {
 };
 
 const getRandomArtistQuestions = createSelector(
-  getQuestions,
-  randomFilter,
-  (resultOne, resultTwo) => {
-    return resultOne.filter((it) => resultTwo && it.type === `artist`);
-  }
+    getQuestions,
+    randomFilter,
+    (resultOne, resultTwo) => {
+      return resultOne.filter((it) => resultTwo && it.type === `artist`);
+    }
 );
 
 
