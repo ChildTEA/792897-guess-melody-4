@@ -159,6 +159,89 @@ exports[`<App /> Should render ArtistQuestionScreen correctly 1`] = `
 </section>
 `;
 
+exports[`<App /> Should render AuthScreen correctly 1`] = `
+<section
+  className="login"
+>
+  <div
+    className="login__logo"
+  >
+    <img
+      alt="Угадай мелодию"
+      height="83"
+      src="img/melody-logo.png"
+      width="186"
+    />
+  </div>
+  <h2
+    className="login__title"
+  >
+    Вы настоящий меломан!
+  </h2>
+  <p
+    className="login__text"
+  >
+    Хотите узнать свой результат? Представтесь!
+  </p>
+  <form
+    action=""
+    className="login__form"
+    onSubmit={[Function]}
+  >
+    <p
+      className="login__field"
+    >
+      <label
+        className="login__label"
+        htmlFor="name"
+      >
+        Логин
+      </label>
+      <input
+        className="login__input"
+        id="name"
+        name="name"
+        type="text"
+      />
+    </p>
+    <p
+      className="login__field"
+    >
+      <label
+        className="login__label"
+        htmlFor="password"
+      >
+        Пароль
+      </label>
+      <input
+        className="login__input"
+        id="password"
+        name="password"
+        type="text"
+      />
+      <span
+        className="login__error"
+      >
+        Неверный пароль
+      </span>
+    </p>
+    <button
+      className="login__button button"
+      type="submit"
+    >
+      Войти
+    </button>
+  </form>
+  <button
+    className="replay"
+    onClick={[Function]}
+    type="button"
+  >
+    Сыграть ещё раз
+  </button>
+</section>
+`;
+
 exports[`<App /> Should render GameOverScreen correctly 1`] = `
 <section
   className="game game--genre"
@@ -418,7 +501,17 @@ exports[`<App /> Should render GenreQuestionScreen correctly 1`] = `
     </svg>
     <div
       className="game__mistakes"
-    />
+    >
+      <div
+        className="wrong"
+      />
+      <div
+        className="wrong"
+      />
+      <div
+        className="wrong"
+      />
+    </div>
   </header>
   <section
     className="game__screen"
