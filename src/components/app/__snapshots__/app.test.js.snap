@@ -731,40 +731,4 @@ exports[`<App /> Should render WelcomeScreen correctly 1`] = `
 </section>
 `;
 
-exports[`<App /> Should render WinScreen correctly 1`] = `
-<section
-  className="result"
->
-  <div
-    className="result__logo"
-  >
-    <img
-      alt="Угадай мелодию"
-      height="83"
-      src="img/melody-logo.png"
-      width="186"
-    />
-  </div>
-  <h2
-    className="result__title"
-  >
-    Вы настоящий меломан!
-  </h2>
-  <p
-    className="result__total"
-  >
-    Вы ответили правильно на 
-    2
-     вопросов и совершили 
-    0
-     ошибки
-  </p>
-  <a
-    className="replay"
-    href="/"
-    onClick={[Function]}
-  >
-    Сыграть ещё раз
-  </a>
-</section>
-`;
+exports[`<App /> Should render WinScreen correctly 1`] = `null`;

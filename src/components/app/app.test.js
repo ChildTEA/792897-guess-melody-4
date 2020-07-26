@@ -52,6 +52,9 @@ describe(`<App />`, () => {
       [NameSpace.GAME]: {
         mistakes: 0,
       },
+      [NameSpace.USER]: {
+        authorizationStatus: AuthorizationStatus.NO_AUTH,
+      },
     });
 
     const tree = renderer
@@ -171,7 +174,10 @@ describe(`<App />`, () => {
   it(`Should render WinScreen correctly`, () => {
     const store = mockStore({
       [NameSpace.GAME]: {
-        mistakes: 3,
+        mistakes: 5,
+      },
+      [NameSpace.USER]: {
+        authorizationStatus: AuthorizationStatus.NO_AUTH,
       },
     });
 
@@ -203,6 +209,9 @@ describe(`<App />`, () => {
     const store = mockStore({
       [NameSpace.GAME]: {
         mistakes: 3,
+      },
+      [NameSpace.USER]: {
+        authorizationStatus: AuthorizationStatus.NO_AUTH,
       },
     });
 
