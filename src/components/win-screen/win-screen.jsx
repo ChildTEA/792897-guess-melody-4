@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
-import {Link} from "react-router-dom";
 import {AppRoute} from "../../const.js";
+import {Link} from "react-router-dom";
 
 
 const WinScreen = (props) => {
