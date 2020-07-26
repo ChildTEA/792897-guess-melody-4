@@ -1,11 +1,10 @@
-import configureStore from "redux-mock-store";
-import NameSpace from "../../reducer/name-space.js";
 import React from "react";
 import renderer from "react-test-renderer";
-import {App} from "./app.jsx";
-import {AuthorizationStatus} from "../../reducer/user/user.js";
 import {Provider} from "react-redux";
-
+import configureStore from "redux-mock-store";
+import {App} from "./app.jsx";
+import NameSpace from "../../reducer/name-space.js";
+import {AuthorizationStatus} from "../../reducer/user/user.js";
 
 const mockStore = configureStore([]);
 
@@ -45,9 +44,8 @@ const questions = [
   },
 ];
 
-
-describe(`<App />`, () => {
-  it(`Should render WelcomeScreen correctly`, () => {
+describe(`Render App`, () => {
+  it(`Render WelcomeScreen`, () => {
     const store = mockStore({
       [NameSpace.GAME]: {
         mistakes: 0,
@@ -78,7 +76,7 @@ describe(`<App />`, () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it(`Should render GenreQuestionScreen correctly`, () => {
+  it(`Render GenreQuestionScreen`, () => {
     const store = mockStore({
       [NameSpace.GAME]: {
         mistakes: 3,
@@ -109,7 +107,7 @@ describe(`<App />`, () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it(`Should render ArtistQuestionScreen correctly`, () => {
+  it(`Render ArtistQuestionScreen`, () => {
     const store = mockStore({
       [NameSpace.GAME]: {
         mistakes: 3,
@@ -140,7 +138,7 @@ describe(`<App />`, () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it(`Should render GameOverScreen correctly`, () => {
+  it(`Render GameOverScreen`, () => {
     const store = mockStore({
       [NameSpace.GAME]: {
         mistakes: 3,
@@ -154,12 +152,12 @@ describe(`<App />`, () => {
               authorizationStatus={AuthorizationStatus.NO_AUTH}
               login={() => {}}
               maxMistakes={3}
-              mistakes={0}
+              mistakes={3}
               questions={questions}
               onUserAnswer={() => {}}
               onWelcomeButtonClick={() => {}}
               resetGame={() => {}}
-              step={0}
+              step={1}
             />
           </Provider>, {
             createNodeMock: () => {
@@ -171,13 +169,13 @@ describe(`<App />`, () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it(`Should render WinScreen correctly`, () => {
+  it(`Render WinScreen`, () => {
     const store = mockStore({
       [NameSpace.GAME]: {
         mistakes: 5,
       },
       [NameSpace.USER]: {
-        authorizationStatus: AuthorizationStatus.NO_AUTH,
+        authorizationStatus: AuthorizationStatus.AUTH,
       },
     });
 
@@ -205,7 +203,7 @@ describe(`<App />`, () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it(`Should render AuthScreen correctly`, () => {
+  it(`Render AuthScreen`, () => {
     const store = mockStore({
       [NameSpace.GAME]: {
         mistakes: 3,
@@ -234,7 +232,7 @@ describe(`<App />`, () => {
               return {};
             }
           })
-        .toJSON();
+      .toJSON();
 
     expect(tree).toMatchSnapshot();
   });
